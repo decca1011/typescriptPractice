@@ -2,11 +2,17 @@ const  num1Element = document.getElementById('num1') as HTMLInputElement;
 const  num2Element = document.getElementById('num2') as HTMLInputElement;
 const  buttonElement = document.querySelector('button')!;
 
-const newResults: number[] = [];
+const newResults: Array<number> = [];
 const textResults: string[] = []; 
 
 type NumOrString = number | string;
 type Result = {val: number; timestamp:Date};
+
+interface ResultObj {
+   val: number;
+   timestamp: Date;
+}
+
 
 const sum = function(num1: NumOrString , num2:  NumOrString) {
    if(typeof num1 === "number" && num2 === " number"){
@@ -19,7 +25,7 @@ const sum = function(num1: NumOrString , num2:  NumOrString) {
    return +num1 + +num2;
  }
 
-function printResult(resultObj: ) {
+function printResult(resultObj: ResultObj ) {
    console.log(`${resultObj.timestamp}: ${resultObj.val}`);
 }
 
@@ -40,3 +46,15 @@ buttonElement.addEventListener('click', () => {
 
  });
 
+
+
+ const myPromise = new Promise<string>((resolve , reject)=> {
+setTimeout(() => {
+   resolve("This is the resolved value");
+},1000);
+ });
+
+
+ myPromise.then((result) => {
+   console.log(result.split('w'));
+ } )

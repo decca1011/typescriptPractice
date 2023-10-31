@@ -1,9 +1,10 @@
-var num1Element = document.getElementById('num1');
-var num2Element = document.getElementById('num2');
-var buttonElement = document.querySelector('button');
-var newResults = [];
-var textResults = [];
-var sum = function (num1, num2) {
+"use strict";
+const num1Element = document.getElementById('num1');
+const num2Element = document.getElementById('num2');
+const buttonElement = document.querySelector('button');
+const newResults = [];
+const textResults = [];
+const sum = function (num1, num2) {
     if (typeof num1 === "number" && num2 === " number") {
         return num1 + num2;
     }
@@ -13,16 +14,24 @@ var sum = function (num1, num2) {
     return +num1 + +num2;
 };
 function printResult(resultObj) {
-    console.log("".concat(resultObj.timestamp, ": ").concat(resultObj.val));
+    console.log(`${resultObj.timestamp}: ${resultObj.val}`);
 }
-buttonElement.addEventListener('click', function () {
-    var num1 = parseFloat(num1Element.value);
-    var num2 = parseFloat(num2Element.value);
-    var result = sum(num1, num2);
-    var stringResult = sum(num1, num2);
+buttonElement.addEventListener('click', () => {
+    const num1 = parseFloat(num1Element.value);
+    const num2 = parseFloat(num2Element.value);
+    const result = sum(num1, num2);
+    const stringResult = sum(num1, num2);
     console.log(result, stringResult);
     newResults.push(result);
     textResults.push(stringResult);
     printResult({ val: result, timestamp: new Date() });
     console.log(newResults, textResults);
+});
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("This is the resolved value");
+    }, 1000);
+});
+myPromise.then((result) => {
+    console.log(result.split('w'));
 });
