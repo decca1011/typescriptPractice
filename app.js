@@ -18,7 +18,7 @@ function printResult(resultObj) {
 buttonElement.addEventListener('click', function () {
     var num1 = parseFloat(num1Element.value);
     var num2 = parseFloat(num2Element.value);
-    var result = sum(+num1, +num2);
+    var result = sum(num1, num2);
     var stringResult = sum(num1, num2);
     console.log(result, stringResult);
     newResults.push(result);

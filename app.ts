@@ -3,9 +3,12 @@ const  num2Element = document.getElementById('num2') as HTMLInputElement;
 const  buttonElement = document.querySelector('button')!;
 
 const newResults: number[] = [];
-const textResults: string[] =[]; 
+const textResults: string[] = []; 
 
-const sum = function(num1: number | string , num2: number | string ) {
+type NumOrString = number | string;
+type Result = {val: number; timestamp:Date};
+
+const sum = function(num1: NumOrString , num2:  NumOrString) {
    if(typeof num1 === "number" && num2 === " number"){
       return num1 + num2;
    }
@@ -16,7 +19,7 @@ const sum = function(num1: number | string , num2: number | string ) {
    return +num1 + +num2;
  }
 
-function printResult(resultObj: {val: number; timestamp:Date}) {
+function printResult(resultObj: ) {
    console.log(`${resultObj.timestamp}: ${resultObj.val}`);
 }
 
